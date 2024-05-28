@@ -1,0 +1,91 @@
+body {
+  position: relative; /* Make body the positioning context */
+  font-family: "Arial", sans-serif;
+  color: #666;
+  margin: 0;
+  padding: 20px;
+  background: #e0e0e0;
+  transition: background 5s ease-in-out;
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+h1 {
+  color: #444;
+}
+
+input,
+button {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+input {
+  width: calc(100% - 22px);
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #888; /* Default background */
+  color: white; /* Default text color */
+  cursor: pointer;
+  transition: background-color 0.5s ease; /* Smooth transition for color change */
+}
+
+button:hover {
+  background-color: #aaa;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.endCredits {
+  animation: rise 10s ease forwards;
+}
+
+.love-button {
+  background-color: #ff6f91; /* Dark pastel pink */
+  color: white; /* White text */
+  transition: background-color 0.5s ease; /* Ensure smooth color transition */
+}
+
+#messageContainer p {
+  margin: 0;
+  padding: 0.5em 0;
+  transition: color 0.5s ease-in-out; // Smooth transition for color change
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.hide {
+  display: none; // Helper class to toggle visibility
+}
+
+.override-button {
+  background-color: black;
+  color: white;
+  font-family: "Jenkins v2.0", sans-serif; /* Make sure this font is properly imported if it's a custom font */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.override-button:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}
