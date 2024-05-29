@@ -15,8 +15,11 @@ const messages = [
 ];
 
 function makeGuess() {
-  const guessInput = document.getElementById("guessInput").value;
+  // We are lying :(
+  const guessInput = (document.getElementById("guessInput") as HTMLInputElement)?.value;
   const messageContainer = document.getElementById("messageContainer");
+
+  if (!messageContainer) throw new Error ('Message container is not found')
 
   if (guessInput === "1317" && messageIndex === 0) {
     // Check if it's the special input right after reset
