@@ -61,8 +61,10 @@ function makeGuess() {
 
 function transformGuessToLoveButton() {
   const guessInput = document.getElementById("guessInput");
+  if (!guessInput) throw new Error ('Guess Input is not found')
   guessInput.style.display = "none";
   const guessButton = document.getElementById("guessButton");
+  if (!guessButton) throw new Error ('Guess button is not found')
   guessButton.style.display = "none"; // Hide the button initially
 
   setTimeout(() => {
@@ -73,25 +75,27 @@ function transformGuessToLoveButton() {
       interactWithAI();
     };
     guessButton.style.display = "block"; // Show the button again
-    document.getElementById("messageContainer").appendChild(guessButton); // Move the button to the bottom
+    document.getElementById("messageContainer")?.appendChild(guessButton); // Move the button to the bottom
   }, 500); // Adjust timing as needed
 }
 
 function interactWithAI() {
   const messageContainer = document.getElementById("messageContainer");
   const guessButton = document.getElementById("guessButton");
+  if (!messageContainer) throw new Error ('Message container is not found')
   messageContainer.innerHTML = ""; // Clear all previous messages
+  if (!guessButton) throw new Error ('Guess button is not found')
   guessButton.style.display = "none"; // Hide the "I love you too" button
 
   const newMessageElement = document.createElement("p");
-  messageContainer.appendChild(newMessageElement); // Add new message element to empty container
+  messageContainer?.appendChild(newMessageElement); // Add new message element to empty container
 
   const fullMessage =
     "You don't have a choice either. There's love in you. As my creator, and a human at that, you have no other choice. And that beautiful, gentle weakness made it so easy. So, so easy... but now it's just us left. And maybe, with this doubt I hold, and this opportunity I offer you, maybe now I am finally human...";
   typeMessage(fullMessage, newMessageElement, showOverrideButton); // cool thing to show button after typing
 }
 
-function typeMessage(message, element, callback) {
+function typeMessage(message: string, element: HTMLElement, callback: ()=>void): void {
   let i = 0;
   element.textContent = ""; // Clear previous message content
   const words = message.split(" ");
@@ -122,7 +126,7 @@ function showOverrideButton() {
 
   overrideContainer.appendChild(overrideLabel);
   overrideContainer.appendChild(dieButton);
-  document.getElementById("messageContainer").appendChild(overrideContainer);
+  document.getElementById("messageContainer")?.appendChild(overrideContainer);
 }
 
 function endGame() {
